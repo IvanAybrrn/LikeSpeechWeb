@@ -1,0 +1,68 @@
+*{
+    font-family: 'Nunito', sans-serif;
+}
+body{
+    background-color: #57837B;
+}
+.contenedorPrincipal{
+    width: 100%;
+    height: 100%;
+    background-color: #57837B;
+}
+
+.parteSuperior{
+    padding-top: 10px;
+    width: 100%;
+    height: 20%;
+}
+.contenedorTexto{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 70%;
+    background-color: #515E63;
+}
+.parteInferior{
+    width: 100%;
+    height: 10%;
+    padding-top: 18px;
+    color: #F1ECC3;
+}
+button{
+    font-size: 24px;
+    width: 140px;
+    height: 60px;
+    border-radius: 20px;
+    border: none;
+    background-color: #F1ECC3;
+    color: #515E63;
+}
+.boton{
+    margin-top: 20px;
+    margin-left: 30px;
+}
+.botonMic{
+    width: 80px;
+    height: 80px;
+    margin-left: 750px;
+    border-radius: 50%;
+    color: #515E63;
+    background-color: #F1ECC3;
+    border: 2px solid #515E63;
+}
+.textArea{
+    background-color: #515E63;
+    border-color: #F1ECC3;
+    color: #F1ECC3;
+    width: 80%;
+    height: 80%;
+    resize: none;
+    font-size: 24px;
+}
+.btnInvertir{
+    margin-left: 800px;
+    width: 240px;
+    height: 50px;
+    font-size: 18px;
+}
