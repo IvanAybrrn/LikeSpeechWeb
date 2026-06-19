@@ -1,0 +1,85 @@
+<html lang="es">
+<head>
+    <script>
+        var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition
+        var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList
+        var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent
+        var recognition = new SpeechRecognition();
+        var speechRecognitionList = new SpeechGrammarList();
+
+        recognition.grammars = speechRecognitionList;
+        recognition.continuous = false;
+        recognition.lang = 'es-ES';
+        recognition.interimResults = false;
+        recognition.maxAlternatives = 1;
+
+        function vozTexto(){
+            recognition.start()
+            console.log("inicializando");
+            recognition.onresult=function(event){
+                var texto=document.getElementsByName("textArea");
+                texto[0].value=event.results[0][0].transcript;
+                console.log("vozTexto funciona correctamente");
+            }
+        }
+
+        function changeFontSize(){
+            var fuenteTam = document.getElementsByName("barraFuente");
+            var textoFuente = document.getElementsByName("textArea");
+            textoFuente[0].style.fontSize = fuenteTam[0].value;
+            console.log("changeFontSize funciona correctamente");
+
+        }
+
+        function invertirColor(){
+            var textAreaStyle = document.getElementsByName("textArea");
+            var colorActual = textAreaStyle[0].style.backgroundColor;
+            console.log(colorActual);
+            if (colorActual == "rgb(81, 94, 99)"){
+                textAreaStyle[0].style.backgroundColor = "#F1ECC3";
+                textAreaStyle[0].style.color = "#515E63";
+            }
+            else{
+                textAreaStyle[0].style.backgroundColor = "#515E63";
+                textAreaStyle[0].style.color = "#F1ECC3";
+            }
+            
+
+        }
+
+    </script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@1,700&display=swap" rel="stylesheet">
+
+    <title>LikeSpich</title>
+</head>
+<body>
+    <div class=contenedorPrincipal>
+        <div class="parteSuperior">
+            <button class="boton">TEXTO</button>
+            <button class="boton">SEÑAS</button>
+            <button class="botonMic" onclick="vozTexto()">MIC</button>
+            
+        </div>
+
+        <div class="contenedorTexto">
+            <textarea name="textArea" class="textArea" cols="155" rows="20" readonly>Presione el boton de microfono para hablar...</textarea>
+        </div>
+
+        <div class="parteInferior">
+            TAMAÑO DE LETRAS:
+            <button class="btnInvertir" onclick="invertirColor()">INVERTIR COLORES</button>
+            <br>
+            <input name="barraFuente" class="barraFuente" type="range" min="24" max="72" value="24" onchange="changeFontSize()">
+            
+            
+        </div>
+
+    </div>
+    
+</body>
+</html>
